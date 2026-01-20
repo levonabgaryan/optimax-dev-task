@@ -1,0 +1,74 @@
+[
+  {
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "john.doe@example.com",
+    "phone": "+1-202-555-0101",
+    "address": "123 Maple Street",
+    "city": "New York",
+    "country": "USA",
+    "customer_segment": "VIP",
+    "orders": [
+      {
+        "status": "shipped",
+        "shipping_method": "FedEx Ground",
+        "shipping_address": "123 Maple Street",
+        "shipping_city": "New York",
+        "shipping_country": "USA",
+        "total_amount": 1250.50,
+        "payment_method": "Credit Card",
+        "payment_status": "Paid",
+        "items": [
+          {
+            "product_id": 100,
+            "product_name": "Laptop Stand",
+            "quantity": 1,
+            "unit_price": 50.50,
+            "discount_percentage": 0.0,
+            "total_price": 50.50
+          },
+          {
+            "product_id": 102,
+            "product_name": "4K Monitor",
+            "quantity": 1,
+            "unit_price": 1200.00,
+            "discount_percentage": 5.0,
+            "total_price": 1200.00
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "first_name": "Alice",
+    "last_name": "Smith",
+    "email": "alice.s@example.com",
+    "phone": "+44-20-7946-0958",
+    "address": "45 Victoria Road",
+    "city": "London",
+    "country": "UK",
+    "customer_segment": "Regular",
+    "orders": [
+      {
+        "status": "pending",
+        "shipping_method": "DHL Express",
+        "shipping_address": "45 Victoria Road",
+        "shipping_city": "London",
+        "shipping_country": "UK",
+        "total_amount": 45.00,
+        "payment_method": "PayPal",
+        "payment_status": "Processing",
+        "items": [
+          {
+            "product_id": 205,
+            "product_name": "Keyboard Cover",
+            "quantity": 3,
+            "unit_price": 15.00,
+            "discount_percentage": 10.0,
+            "total_price": 45.00
+          }
+        ]
+      }
+    ]
+  }
+]
