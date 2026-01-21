@@ -1,0 +1,25 @@
+---
+Question:
+How would you handle late-arriving data in a streaming pipeline
+while maintaining accurate aggregations?
+
+Answer:
+1)Event Time, Processing Time
+To handle late data, I use Event Time — the timestamp from the message itself.
+This ensures the data goes into the correct time interval, even if it arrives late
+
+2)Upserts
+The pipeline is executed in any case, after upsert in the database datas are correct.
+---
+
+---
+Question:
+How would you monitor and alert on data quality issues in your
+pipelines?
+
+Answer:
+1)Not strict validation
+2)Use a threshold.
+  For example threshold is 15. We expected only letter for field name, but there is a name which contains 27 letters.
+  It looks strange, we mark that field, for checking.
+---

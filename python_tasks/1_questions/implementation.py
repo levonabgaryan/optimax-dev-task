@@ -24,6 +24,7 @@ def convert_pub_sub_message_to_dict(message: str) -> dict[str, Any]:
     # Parse JSON string into a Python dictionary
     data = json.loads(json_string)
 
+    print(f"data: {data}")
     return data
 
 def save_data_to_db(data: dict[str, Any]) -> None:
