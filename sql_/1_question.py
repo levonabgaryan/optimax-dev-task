@@ -3,7 +3,7 @@ from pathlib import Path
 
 DB_PATH = Path(__file__).resolve().parent / "data" / "SqlLite.db"
 
-def find_top_5_customers_which_spent_the_most_money() -> None:
+def query_function() -> None:
     # Find the top 5 customers who have spent the most
     # money across all their orders. Return their name, email, and total spend.
     with sqlite3.connect(DB_PATH) as connection:
@@ -23,4 +23,4 @@ def find_top_5_customers_which_spent_the_most_money() -> None:
             print(f"Customer: {row[0]} ({row[1]}) - Spent: ${row[2]}")
 
 if __name__ == '__main__':
-    find_top_5_customers_which_spent_the_most_money()
+    query_function()

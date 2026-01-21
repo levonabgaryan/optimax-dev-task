@@ -3,7 +3,10 @@ from pathlib import Path
 
 DB_PATH = Path(__file__).resolve().parent / "data" / "SqlLite.db"
 
-def find_all_products_by_date() -> None:
+def query_function() -> None:
+    # Find all products that were ordered in the last 30 days but haven&#39;t
+    # been ordered in the last 7 days. Include the product_id,
+    # product_name, total quantity ordered, and the last order date for each product.
     with sqlite3.connect(DB_PATH) as connection:
         cursor = connection.cursor()
         query = """
@@ -27,4 +30,4 @@ def find_all_products_by_date() -> None:
             print(f"Product - id: {row[0]}, name: {row[1]}, total_quantity: {row[2]}, last_order_date:{row[3]}")
 
 if __name__ == '__main__':
-    find_all_products_by_date()
+    query_function()
