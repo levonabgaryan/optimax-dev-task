@@ -26,6 +26,7 @@ def convert_pub_sub_message_to_dict(message: str) -> dict[str, Any]:
     print(f"data: {data}")
     return data
 
+
 def save_data_to_db(data: dict[str, Any]) -> None:
     with sqlite3.connect(DB_PATH) as connection:
         cursor = connection.cursor()

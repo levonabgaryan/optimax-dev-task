@@ -5,7 +5,13 @@ The project uses SQLite for testing and simplicity, developed with Python 3.14.
 
 ## 📖 Solution Reference
 
-If you want to review the code without running the scripts, please refer to the following directories:
+If you want to review the SQL queries,
+
+and python function which `a stream of JSON messages
+from Pub/Sub, transforms them, and loads them into a database`,
+
+without running the scripts,
+please refer to the following directories:
 
 ### SQL
 * **Task 1:** `sql_tasks/1_question.py` → `query_function()`
