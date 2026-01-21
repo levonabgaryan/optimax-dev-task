@@ -1,12 +1,10 @@
 import sqlite3
 from pathlib import Path
-import json
-from typing import Any, Final
+from typing import Final
 
 
 BASE_DIR: Final[Path] = Path(__file__).resolve().parent
-DB_PATH: Final[Path] = BASE_DIR / "data" / "SqlLite.db"
-JSON_PATH: Final[Path] = BASE_DIR / "data" / "data.json"
+DB_PATH: Final[Path] = BASE_DIR / "db" / "SqlLite.db"
 
 
 def create_tables() -> None:
@@ -103,7 +101,7 @@ def fill_db() -> None:
         cursor.executescript(query)
         connection.commit()
 
-    print(f"✅ Data from {JSON_PATH.name} has been successfully imported!")
+    print(f"✅ Data has been successfully imported!")
     return None
 
 def setup_db() -> None:
