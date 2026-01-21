@@ -5,7 +5,7 @@ The project uses SQLite for testing and simplicity, developed with Python 3.14.
 
 ## 📖 Solution Reference
 
-If you want to review the code without running the scripts, please refer to the following locations:
+If you want to review the code without running the scripts, please refer to the following directories:
 
 ### SQL
 * **Task 1:** `sql_tasks/1_question.py` → `query_function()`
@@ -15,8 +15,6 @@ If you want to review the code without running the scripts, please refer to the 
 
 ### Python
 * **Task1:** `python_tasks/1_questions/implementation.py` → `convert_pub_sub_message_to_dict()`, `save_data_to_db()`
-* **Question 2,3** `python_tasks/2_3_questions.txt`
-
 ---
 
 ## 🚀 Execution Guide
@@ -28,19 +26,18 @@ python sql_tasks/setup_db.py
 Note: If you see the message ✅ Data has been successfully imported!, it means all tables have been created and sample data has been populated.
 
 
-**Run a script**
-Example
+**Run a script (example):**
 ```
 python sql_tasks/1_question.py
 ```
 
 ### Python
-*Setup db**
+**Set up the database:**
 ```
 python python_tasks/setup_db.py 
 ```
 
-* Run python script
+* Run the Python script:
 ```
 python python_tasks/1_questions/test.py
 ```
