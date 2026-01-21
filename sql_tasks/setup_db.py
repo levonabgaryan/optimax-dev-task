@@ -4,7 +4,7 @@ from typing import Final
 
 
 BASE_DIR: Final[Path] = Path(__file__).resolve().parent
-DB_PATH: Final[Path] = BASE_DIR / "db" / "SqlLite.db"
+DB_PATH: Final[Path] = BASE_DIR / "db" / "sqlite.db"
 
 
 def create_tables() -> None:

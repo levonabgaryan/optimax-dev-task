@@ -3,7 +3,7 @@ from pathlib import Path
 from typing import Final
 
 BASE_DIR: Final[Path] = Path(__file__).resolve().parent
-DB_PATH: Final[Path] = BASE_DIR / "db" / "SqlLite.db"
+DB_PATH: Final[Path] = BASE_DIR / "db" / "sqlite.db"
 
 
 def create_customers_table() -> None:
@@ -39,7 +39,7 @@ def create_customers_table() -> None:
         cursor.executescript(query)
         connection.commit()
 
-    print("Customers table have been created")
+    print("✅ Customers table have been created")
 
 
 if __name__ == '__main__':

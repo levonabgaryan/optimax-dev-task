@@ -1,7 +1,7 @@
 import sqlite3
 from pathlib import Path
 
-DB_PATH = Path(__file__).resolve().parent / "db" / "SqlLite.db"
+DB_PATH = Path(__file__).resolve().parent / "db" / "sqlite.db"
 
 def query_function() -> None:
     # Find all products that were ordered in the last 30 days but haven&#39;t

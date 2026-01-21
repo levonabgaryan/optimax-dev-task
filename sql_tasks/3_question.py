@@ -1,7 +1,7 @@
 import sqlite3
 from pathlib import Path
 
-DB_PATH = Path(__file__).resolve().parent / "db" / "SqlLite.db"
+DB_PATH = Path(__file__).resolve().parent / "db" / "sqlite.db"
 
 def query_function() -> None:
     # For each customer, show their total spend and how it compares to the

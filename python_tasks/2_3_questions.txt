@@ -4,22 +4,34 @@ How would you handle late-arriving data in a streaming pipeline
 while maintaining accurate aggregations?
 
 Answer:
-1)Event Time, Processing Time
-To handle late data, I use Event Time — the timestamp from the message itself.
-This ensures the data goes into the correct time interval, even if it arrives late
+Event Time, Processing Time
+Event time — the timestamp when the action actually happened.
+Processing time — the time when the system (server-side application) receives and processes the data.
 
-2)Upserts
-The pipeline is executed in any case, after upsert in the database datas are correct.
+The difference between them is called Latency.
+Depending on the latency value, we can apply the necessary logic.
+
+Examples
+- A user places an order at 10:00 AM(event time). It comes to server at 11:00, because of connection problem.
+  The system checks the latency and the logic decides to accept the order and set created_at to 10:00 AM.
+
+- A user clicks a button to see products that were added at 10:00 AM. The request arrives at the server
+  at 11:00 AM due to a connection problem. The system checks the latency and the logic decides to cancel
+  the request or retry it using the 11:00 AM timestamp, because during that one
+  hour some new products may have been added.
 ---
 
 ---
 Question:
-How would you monitor and alert on data quality issues in your
-pipelines?
+How would you monitor and alert on data quality issues in your pipelines?
 
 Answer:
-1)Not strict validation
-2)Use a threshold.
-  For example threshold is 15. We expected only letter for field name, but there is a name which contains 27 letters.
-  It looks strange, we mark that field, for checking.
+For primitive and obvious cases, we can use validation.
+For example, if the name field contains any numbers, the validation stage is not passed.
+
+We can use thresholds for checking data quality, similar to those used in ML datasets.
+If the threshold is not too strict, we can pass the data to ChatGPT for cleaning.
+
+If we detect an important validation error or the threshold is exceeded significantly,
+we can send an alert to a Telegram bot instead of just logging the issue.
 ---

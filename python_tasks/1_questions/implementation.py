@@ -4,8 +4,7 @@ from pathlib import Path
 from typing import Any
 import base64
 
-DB_PATH = Path(__file__).resolve().parent.parent / "db" / "SqlLite.db"
-print(DB_PATH)
+DB_PATH = Path(__file__).resolve().parent.parent / "db" / "sqlite.db"
 
 
 def convert_pub_sub_message_to_dict(message: str) -> dict[str, Any]:
@@ -32,8 +31,17 @@ def save_data_to_db(data: dict[str, Any]) -> None:
         cursor = connection.cursor()
 
         query = """
-            INSERT INTO customers (first_name, last_name, email, phone, address, city, country, customer_segment) VALUES 
+            INSERT INTO customers (first_name, last_name, email, phone, address, city, country, customer_segment) 
+            VALUES 
                 (?, ?, ?, ?, ?, ?, ?, ?)
+            ON CONFLICT(email) DO UPDATE SET
+                first_name = excluded.first_name,
+                last_name = excluded.last_name,
+                phone = excluded.phone,
+                address = excluded.address,
+                city = excluded.city,
+                country = excluded.country,
+                customer_segment = excluded.customer_segment
         """
 
         params = (

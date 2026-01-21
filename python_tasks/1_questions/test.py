@@ -1,9 +1,13 @@
 import base64
 import json
+from pathlib import Path
 from typing import Any
+import sqlite3
 
 from implementation import convert_pub_sub_message_to_dict, save_data_to_db
 
+
+DB_PATH = Path(__file__).resolve().parent.parent / "db" / "sqlite.db"
 
 def create_pub_sub_message_data(data_: dict[str, Any]) -> str:
     # Creates a json-string for pub/sub message
@@ -36,3 +40,29 @@ if __name__ == '__main__':
 
     # when
     save_data_to_db(data)
+
+    # then
+    with sqlite3.connect(DB_PATH) as connection:
+        cursor = connection.cursor()
+        query = """
+            SELECT
+                first_name,
+                last_name,
+                email,
+                phone,
+                address,
+                city,
+                country,
+                customer_segment
+            FROM customers
+        """
+        cursor.execute(query)
+        result = cursor.fetchall()[0]
+        assert result[0] == "Ann"
+        assert result[1] == "Brown"
+        assert result[2] == "test@mail.com"
+        assert result[3] == "test_phone_number"
+        assert result[4] == "test_address"
+        assert result[5] == "test_city"
+        assert result[6] == "test_country"
+        assert result[7] == "test_customer_segment"
